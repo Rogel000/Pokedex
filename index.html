@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="PokéAPI Logo" class="pokeapi-logo">
+        </div>
+        <div class="search-container">
+            <input type="text" id="pokemonNameOrId" placeholder="Nom ou Numéro de Pokédex">
+            <button id="search">Rechercher</button>
+            <button id="viewMyPokemons">Voir mes Pokémon</button>
+        </div>
+    </div>
+    
+    <div class="pokemon-info-container">
+        <div class="pokemon-info" id="pokemonInfo">
+            <img src="pokeball.png" class="pokeball" />
+            <!-- Les informations du Pokémon s'afficheront ici -->
+        </div>
+    </div>
+    
+    <div class="nav-buttons">
+        <button id="previous" class="nav-btn">&#8592</button>
+        <button id="next" class="nav-btn">&#8594</button>
+    </div>
+
+    <!-- Modale pour afficher les Pokémon capturés -->
+    <div id="myPokemonsModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <div id="myPokemons"></div>
+        </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
