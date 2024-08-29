@@ -31,6 +31,7 @@ body {
   margin-bottom: 20px;
   text-shadow: 2px 2px #000;
 }
+
 .logo-container {
   display: flex;
   justify-content: center;
@@ -38,19 +39,20 @@ body {
 }
 
 .pokeapi-logo {
-  width: 250;
+  width: 250px;
   height: auto;
 }
 
 .search-container {
   display: flex;
   gap: 10px;
+  margin-bottom: 30px;
 }
 
 #pokemonNameOrId {
-  width: 300px;
-  padding: 10px;
-  border-radius: 5px;
+  width: 350px;
+  padding: 12px;
+  border-radius: 8px;
   border: none;
   font-size: 1em;
   text-align: center;
@@ -60,14 +62,18 @@ body {
 
 #search,
 #viewMyPokemons {
-  padding: 10px 20px;
-  border: none;
+  padding: 12px 25px;
+  border: 2px solid #7c477a;
   background-color: #2e2424;
   color: #fff;
   cursor: pointer;
-  border-radius: 5px;
-  font-size: 1em;
-  transition: background-color 0.3s;
+  border-radius: 8px;
+  font-size: 1.1em;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+#viewMyPokemons {
+  margin-top: 50px;
 }
 
 #search:hover {
@@ -153,16 +159,13 @@ body {
   background-color: #2e2424;
   color: #fff;
   cursor: pointer;
-  border-radius: 5px;
   font-size: 1em;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
-.nav-buttons :hover {
-  background-color: #7c477a;
-}
 
 .modal {
   display: none;
@@ -230,4 +233,57 @@ body {
   font-size: 1.5em;
   margin-bottom: 10px;
   text-transform: capitalize;
+}
+
+/* Responsive Styles */
+
+@media (max-width: 768px) {
+  .search-container {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  #pokemonNameOrId {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+
+  .pokemon-info-container {
+    width: 90%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .pokemon-card {
+    width: 90%;
+    height: auto;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pokemon-info-container {
+    width: 100%;
+    padding: 5px;
+  }
+
+  .pokemon-card {
+    width: 100%;
+    height: auto;
+  }
+
+  .nav-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  body {
+    padding: 20px 10px;
+  }
 }
