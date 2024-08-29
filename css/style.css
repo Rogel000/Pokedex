@@ -100,6 +100,20 @@ button {
   right: 10px;
   width: 50px;
   cursor: pointer;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease-in-out;
+}
+.pokeball:hover {
+  animation: rotateAnimation 0.5s ease-in-out infinite;
+}
+
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .pokemon-image {
