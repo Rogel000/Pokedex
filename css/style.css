@@ -60,8 +60,7 @@ body {
   color: #ffffff;
 }
 
-#search,
-#viewMyPokemons {
+button {
   padding: 12px 25px;
   border: 2px solid #7c477a;
   background-color: #2e2424;
@@ -75,6 +74,7 @@ body {
 #viewMyPokemons {
   margin-top: 50px;
 }
+
 
 #search:hover {
   background-color: #7c477a;
@@ -165,7 +165,6 @@ body {
   justify-content: center;
   z-index: 2;
 }
-
 
 .modal {
   display: none;

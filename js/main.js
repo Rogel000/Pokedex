@@ -37,30 +37,29 @@ function displayPokemon(pokemonData) {
 
   pokemonInfoDiv.dataset.id = id;
   pokemonInfoDiv.innerHTML = `
-          <img src="pokeball.png" class="pokeball" />  
-          <img src="${
-            sprites.other["official-artwork"].front_default
-          }" alt="${name}" class="pokemon-image">
-          <h2>${id}</h2>
-          <h2>${name}</h2>
-          <p><strong>Poids:</strong> ${weight / 10} kg</p>
-          <p><strong>Taille:</strong> ${height / 10} m</p>
-          <div class="types">
-            <strong>Type:</strong>
-            ${types
-              .map((type) => `<span class="type">${type.type.name}</span>`)
-              .join("")}
-          </div>
-          <div class="abilities">
-            <strong>Capacité:</strong>
-            ${abilities
-              .map(
-                (ability) =>
-                  `<span class="ability">${ability.ability.name}</span>`
-              )
-              .join("")}
-          </div>
-        `;
+    <img src="pokeball.png" class="pokeball" />  
+    <img src="${
+      sprites.other["official-artwork"].front_default
+    }" alt="${name}" class="pokemon-image">
+    <h2>${id}</h2>
+    <h2>${name}</h2>
+    <p><strong>Poids:</strong> ${weight / 10} kg</p>
+    <p><strong>Taille:</strong> ${height / 10} m</p>
+    <div class="types">
+      <strong>Type:</strong>
+      ${types
+        .map((type) => `<span class="type">${type.type.name}</span>`)
+        .join("")}
+    </div>
+    <div class="abilities">
+      <strong>Capacité:</strong>
+      ${abilities
+        .map(
+          (ability) => `<span class="ability">${ability.ability.name}</span>`
+        )
+        .join("")}
+    </div>
+  `;
 
   const capturePokemon = pokemonInfoDiv.querySelector(".pokeball");
   capturePokemon.addEventListener("click", () => {
@@ -77,10 +76,11 @@ function displayPokemon(pokemonData) {
 }
 
 function displayMyPokemons() {
-  const myPokemons = JSON.parse(localStorage.getItem("myPokemons")) || [];
+  const currentMyPokemons =
+    JSON.parse(localStorage.getItem("myPokemons")) || [];
   myPokemonsDiv.innerHTML = "";
 
-  myPokemons.forEach((pokemonId) => {
+  currentMyPokemons.forEach((pokemonId) => {
     fetch(`${baseUrl}pokemon/${pokemonId}`)
       .then((response) => response.json())
       .then((pokemonData) => {
@@ -88,10 +88,20 @@ function displayMyPokemons() {
         const pokemonCard = document.createElement("div");
         pokemonCard.classList.add("pokemon-card");
         pokemonCard.innerHTML = `
-            <img src="${sprites.other["official-artwork"].front_default}" alt="${name}" class="pokemon-image">
-            <h2>${id} - ${name}</h2>
-       
-          `;
+          <img src="${sprites.other["official-artwork"].front_default}" alt="${name}" class="pokemon-image">
+          <h2>${id} - ${name}</h2>
+          <button class="delete-pokemon-btn"> Supprimer </button>
+        `;
+
+        const deleteBtn = pokemonCard.querySelector(".delete-pokemon-btn");
+        deleteBtn.addEventListener("click", () => {
+          const updatedMyPokemons = currentMyPokemons.filter(
+            (storedId) => storedId !== id
+          );
+          localStorage.setItem("myPokemons", JSON.stringify(updatedMyPokemons));
+          alert(`${name} a été supprimé du Pokédex!`);
+          displayMyPokemons();
+        });
 
         myPokemonsDiv.appendChild(pokemonCard);
       });
