@@ -1,5 +1,3 @@
-/* style.css */
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -60,7 +58,8 @@ body {
   color: #ffffff;
 }
 
-#search, #viewMyPokemons {
+#search,
+#viewMyPokemons {
   padding: 10px 20px;
   border: none;
   background-color: #2e2424;
@@ -91,10 +90,10 @@ body {
 
 .pokeball {
   position: absolute;
-  top: 10px; 
-  right: 10px; 
+  top: 10px;
+  right: 10px;
   width: 50px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .pokemon-image {
@@ -103,7 +102,6 @@ body {
   object-fit: contain;
   margin-bottom: 20px;
 }
-
 
 .pokemon-info h2 {
   font-size: 2em;
@@ -137,11 +135,10 @@ body {
 }
 
 .nav-buttons {
-  position: absolute;
-  top: 50%;
   display: none;
+  position: relative;
+  top: 200px;
   justify-content: space-around;
-  transform: translateY(-50%);
   width: 100%;
   padding: 0 20px;
   box-sizing: border-box;
@@ -170,16 +167,17 @@ body {
 .modal {
   display: none;
   z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.8); 
+  background-color: rgba(0, 0, 0, 0.267);
   justify-content: center;
   align-items: center;
+  margin-top: 50px;
 }
 
 .modal-content {
   background-color: rgba(0, 0, 0, 0.39);
   border: 2px solid #7c477a;
   border-radius: 10px;
-  width: 800px; 
+  width: 800px;
   padding: 20px;
   position: relative;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
@@ -199,11 +197,6 @@ body {
   background: none;
   border: none;
   padding: 5px;
-  
-}
-
-#closeModal:hover {
-  color: #ff0000; 
 }
 
 .pokedex-container {
@@ -211,7 +204,6 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
- 
 }
 
 .pokemon-card {
@@ -222,11 +214,10 @@ body {
   background-color: rgba(0, 0, 0, 0.39);
   border: 2px solid #7c477a;
   border-radius: 10px;
-  width: 250px; 
+  width: 250px;
   height: 350px;
   text-align: center;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-
 }
 
 .pokemon-card .pokemon-image {
@@ -239,21 +230,4 @@ body {
   font-size: 1.5em;
   margin-bottom: 10px;
   text-transform: capitalize;
-}
-
-
-.delete-pokemon {
-  padding: 5px 10px;
-  border: none;
-  background-color: #2e2424;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 1em;
-  margin-top: 10px;
-  transition: background-color 0.3s;
-}
-
-.delete-pokemon:hover {
-  background-color: #7c477a;
 }
